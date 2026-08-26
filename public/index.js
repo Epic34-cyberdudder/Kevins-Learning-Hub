@@ -19,6 +19,11 @@ const forwardBtn = document.getElementById("sj-forward");
 const reloadBtn = document.getElementById("sj-reload");
 const homeBtn = document.getElementById("sj-home");
 
+const savedEngine = loadSettings().searchEngine;
+if (savedEngine && SEARCH_ENGINES[savedEngine]) {
+  searchEngine.value = SEARCH_ENGINES[savedEngine];
+}
+
 let controllerInstance = null;
 let frame = null;
 let ready = false;

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <title>Settings - Scramjet Site</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="settings.css" />
+    <script src="theme.js"></script>
+  </head>
+  <body>
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+
+    <main class="settings-page">
+      <div class="settings-header">
+        <a href="/" class="bar-btn" title="Home" aria-label="Home">&#8962;</a>
+        <h1>Settings</h1>
+      </div>
+
+      <div class="card settings-card">
+        <div class="settings-section">
+          <h2>Default Search Engine</h2>
+          <div class="settings-options" id="engine-options">
+            <button type="button" class="option-btn" data-engine="bing">Bing</button>
+            <button type="button" class="option-btn" data-engine="google">Google</button>
+          </div>
+          <p class="settings-hint">
+            Google sometimes shows its own verification challenge on proxied traffic.
+          </p>
+        </div>
+
+        <div class="settings-section">
+          <h2>Theme Color</h2>
+          <div class="settings-swatches" id="theme-swatches">
+            <button type="button" class="swatch" data-theme="purple" style="background:#7e22ce" aria-label="Purple"></button>
+            <button type="button" class="swatch" data-theme="blue" style="background:#1d4ed8" aria-label="Blue"></button>
+            <button type="button" class="swatch" data-theme="teal" style="background:#059669" aria-label="Teal"></button>
+            <button type="button" class="swatch" data-theme="rose" style="background:#db2777" aria-label="Rose"></button>
+            <button type="button" class="swatch" data-theme="amber" style="background:#d97706" aria-label="Amber"></button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="settings.js" defer></script>
+  </body>
+</html>

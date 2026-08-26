@@ -3,7 +3,12 @@
   z-index: 1;
   min-height: 100vh;
   padding: 2rem;
-  background: linear-gradient(135deg, #2e1065 0%, #7e22ce 45%, #a855f7 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent-1) 0%,
+    var(--accent-2) 45%,
+    var(--accent-3) 100%
+  );
 }
 
 .games-header {
@@ -20,7 +25,11 @@
 }
 
 .games-header .bar-btn:hover {
-  color: #f0abfc;
+  color: var(--accent-5);
+}
+
+.settings-link-inline {
+  margin-left: auto;
 }
 
 .games-header h1 {
@@ -28,7 +37,7 @@
   font-size: 1.75rem;
   font-weight: 800;
   color: #ffffff;
-  text-shadow: 0 4px 24px rgba(46, 16, 101, 0.5);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
 .games-grid {
@@ -51,11 +60,11 @@
   font-size: 0.95rem;
   font-weight: 600;
   min-height: 4.5rem;
-  box-shadow: 0 8px 20px rgba(20, 4, 46, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .game-card:hover {
-  color: #7e22ce;
-  box-shadow: 0 10px 26px rgba(20, 4, 46, 0.3);
+  color: var(--accent-2);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.3);
   transform: translateY(-2px);
 }
