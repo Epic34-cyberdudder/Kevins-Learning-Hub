@@ -11,7 +11,7 @@ const currentEngine = settings.searchEngine || "bing";
 const currentTheme = settings.theme || "purple";
 const currentCloak = settings.cloak || "none";
 const currentPanicKey = settings.panicKey || "";
-const currentPanicAction = settings.panicAction || "google";
+const currentPanicAction = settings.panicAction || "overlay";
 
 for (const btn of engineButtons) {
   if (btn.dataset.engine === currentEngine) btn.classList.add("selected");
