@@ -1,7 +1,7 @@
 import { createServer } from "node:http";
 import { fileURLToPath } from "url";
 import { hostname } from "node:os";
-import { readdir, access } from "node:fs/promises";
+import { readdir, access, readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
@@ -17,6 +17,7 @@ const libcurlPath = fileURLToPath(
   new URL(".", import.meta.resolve("@mercuryworkshop/libcurl-transport"))
 );
 const gamesPath = join(publicPath, "games");
+const remoteGamesPath = fileURLToPath(new URL("../remote-games.json", import.meta.url));
 
 function humanize(name) {
   return name
@@ -64,6 +65,19 @@ async function listGames() {
   return games;
 }
 
+async function listRemoteGames() {
+  try {
+    const raw = await readFile(remoteGamesPath, "utf8");
+    const entries = JSON.parse(raw);
+    if (!Array.isArray(entries)) return [];
+    return entries
+      .filter((e) => e && typeof e.title === "string" && typeof e.url === "string")
+      .map((e) => ({ title: e.title, path: e.url }));
+  } catch {
+    return [];
+  }
+}
+
 logging.set_level(logging.NONE);
 
 Object.assign(wisp.options, {
@@ -107,7 +121,8 @@ fastify.register(fastifyStatic, {
 });
 
 fastify.get("/api/games", async () => {
-  return listGames();
+  const [local, remote] = await Promise.all([listGames(), listRemoteGames()]);
+  return [...remote, ...local];
 });
 
 fastify.setNotFoundHandler((res, reply) => {
