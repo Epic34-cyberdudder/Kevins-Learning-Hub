@@ -5,32 +5,26 @@ const CLOAK_PRESETS = {
   "google-docs": {
     title: "Untitled document - Google Docs",
     favicon: "https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico",
-    url: "/document/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms/edit",
   },
   kahoot: {
     title: "Kahoot!",
     favicon: "https://www.google.com/s2/favicons?domain=kahoot.it&sz=32",
-    url: "/game?gameId=823419",
   },
   desmos: {
     title: "Desmos | Graphing Calculator",
     favicon: "https://www.google.com/s2/favicons?domain=desmos.com&sz=32",
-    url: "/calculator",
   },
   khan: {
     title: "Khan Academy | Free Online Courses",
     favicon: "https://www.google.com/s2/favicons?domain=khanacademy.org&sz=32",
-    url: "/math/algebra",
   },
   classroom: {
     title: "Google Classroom",
     favicon: "https://www.google.com/s2/favicons?domain=classroom.google.com&sz=32",
-    url: "/c/MTIzNDU2Nzg5",
   },
   canvas: {
     title: "Dashboard",
     favicon: "https://www.google.com/s2/favicons?domain=canvas.instructure.com&sz=32",
-    url: "/courses/48291/assignments",
   },
 };
 
@@ -50,10 +44,6 @@ function applyCloak() {
     }
     link.type = "image/x-icon";
     link.href = preset.favicon;
-  }
-
-  if (preset.url) {
-    try { history.replaceState(null, "", preset.url); } catch {}
   }
 }
 
