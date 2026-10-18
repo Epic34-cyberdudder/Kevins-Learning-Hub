@@ -125,6 +125,12 @@ fastify.get("/api/games", async () => {
   return [...remote, ...local];
 });
 
+fastify.get("/play.html", async (req, reply) => {
+  reply.header("Cross-Origin-Opener-Policy", "same-origin");
+  reply.header("Cross-Origin-Embedder-Policy", "credentialless");
+  return reply.sendFile("play.html");
+});
+
 fastify.setNotFoundHandler((res, reply) => {
   return reply.code(404).type("text/html").sendFile("404.html");
 });
