@@ -8,11 +8,7 @@ document.getElementById("play-title").textContent = title;
 
 const frame = document.getElementById("play-frame");
 if (src) {
-  if (src.startsWith("https://") || src.startsWith("http://")) {
-    window.location.href = src;
-  } else {
-    frame.src = src;
-  }
+  frame.src = src;
 } else {
   location.href = "/games.html";
 }
