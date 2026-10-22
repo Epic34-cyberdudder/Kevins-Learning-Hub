@@ -8,7 +8,13 @@ document.getElementById("play-title").textContent = title;
 
 const frame = document.getElementById("play-frame");
 if (src) {
-  frame.src = src;
+  const isRemote = src.startsWith("http://") || src.startsWith("https://");
+  if (isRemote) {
+    window.open(src, "_blank");
+    location.href = "/games.html";
+  } else {
+    frame.src = src;
+  }
 } else {
   location.href = "/games.html";
 }
