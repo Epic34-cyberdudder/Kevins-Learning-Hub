@@ -126,8 +126,6 @@ fastify.get("/api/games", async () => {
 });
 
 fastify.get("/play.html", async (req, reply) => {
-  reply.header("Cross-Origin-Opener-Policy", "same-origin");
-  reply.header("Cross-Origin-Embedder-Policy", "require-corp");
   return reply.sendFile("play.html");
 });
 
